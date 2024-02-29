@@ -29,6 +29,7 @@ console.log(
 );
 
 const app = express();
+const port = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -49,6 +50,6 @@ app.get('/profile/:id', (req, res) => profile.handleProfileGet(req, res, db));
 app.put('/image', (req, res) => image.handleImage(req, res, db));
 // app.post('/imageurl', (req, res) => image.handleAPICall(req, res));
 
-app.listen(3001, () => {
-  console.log('Server running at port 3001.');
+app.listen(port, () => {
+  console.log(`Server running at port ${port}.`);
 });
